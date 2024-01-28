@@ -1,0 +1,22 @@
+﻿<!-- Views/Pdf/Index.cshtml -->
+@{
+    ViewData["Title"] = "Download PDF";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>Click the button below to download the PDF:</p>
+
+<button id="downloadButton">Download PDF</button>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    console.log("hello");
+    $(document).ready(function () {
+        $('#downloadButton').click(function () {
+            window.location.href = '@Url.Action("DownloadPdf", "Pdf")';
+        });
+    });
+</script>
