@@ -1,6 +1,7 @@
 ﻿// Resume/Controllers/PdfController.cs
 
 using Microsoft.AspNetCore.Mvc;
+using Resume.Models;
 using Resume.Services.PdfService;
 
 namespace Resume.Controllers
@@ -19,9 +20,10 @@ namespace Resume.Controllers
             return View();
         }
 
-        public IActionResult DownloadPdf()
+        //[HttpPost]
+        public IActionResult DownloadPdf([FromBody] ResumeData resumeData)
         {
-            var pdfResult = _pdfService.GetPDF();
+            var pdfResult = _pdfService.GetPDF(resumeData);
             return pdfResult;
         }
     }

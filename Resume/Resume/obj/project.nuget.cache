@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "fNveEWAuvlhJrpCvEnfjCPENPf4lIs/GxQOy1TTPYF2JSIbbImkxBQKtdrT/IPQlMIJ6elD2ixfsMZ+4Tg/ojw==",
+  "dgSpecHash": "pXtBqeWh9SUguU74+hp90tSZwtJ8ZZ5lzgYtZ4OHxQOKSExAZgbKd4AekAcT0Wy+V428nx9q5pASvavGucpBog==",
   "success": true,
   "projectFilePath": "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\Resume.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\anmst\\.nuget\\packages\\bootstrap\\5.3.2\\bootstrap.5.3.2.nupkg.sha512",
     "C:\\Users\\anmst\\.nuget\\packages\\harfbuzzsharp\\7.3.0.1\\harfbuzzsharp.7.3.0.1.nupkg.sha512",
     "C:\\Users\\anmst\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0.1\\harfbuzzsharp.nativeassets.macos.7.3.0.1.nupkg.sha512",
     "C:\\Users\\anmst\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\7.3.0.1\\harfbuzzsharp.nativeassets.win32.7.3.0.1.nupkg.sha512",
+    "C:\\Users\\anmst\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\anmst\\.nuget\\packages\\questpdf\\2023.12.4\\questpdf.2023.12.4.nupkg.sha512",
     "C:\\Users\\anmst\\.nuget\\packages\\skiasharp\\2.88.7\\skiasharp.2.88.7.nupkg.sha512",
     "C:\\Users\\anmst\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.7\\skiasharp.harfbuzz.2.88.7.nupkg.sha512",

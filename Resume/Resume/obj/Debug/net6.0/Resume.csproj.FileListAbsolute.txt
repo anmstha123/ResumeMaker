@@ -49,6 +49,7 @@ C:\Users\anmst\OneDrive\Documents\ResumeMaker\Resume\Resume\bin\Debug\net6.0\Res
 C:\Users\anmst\OneDrive\Documents\ResumeMaker\Resume\Resume\bin\Debug\net6.0\Resume.dll
 C:\Users\anmst\OneDrive\Documents\ResumeMaker\Resume\Resume\bin\Debug\net6.0\Resume.pdb
 C:\Users\anmst\OneDrive\Documents\ResumeMaker\Resume\Resume\bin\Debug\net6.0\HarfBuzzSharp.dll
+C:\Users\anmst\OneDrive\Documents\ResumeMaker\Resume\Resume\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\anmst\OneDrive\Documents\ResumeMaker\Resume\Resume\bin\Debug\net6.0\QuestPDF.dll
 C:\Users\anmst\OneDrive\Documents\ResumeMaker\Resume\Resume\bin\Debug\net6.0\SkiaSharp.dll
 C:\Users\anmst\OneDrive\Documents\ResumeMaker\Resume\Resume\bin\Debug\net6.0\SkiaSharp.HarfBuzz.dll

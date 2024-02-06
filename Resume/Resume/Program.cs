@@ -1,4 +1,6 @@
 using Resume.Services.PdfService;
+using Newtonsoft.Json.Serialization;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +9,6 @@ builder.Services.AddControllersWithViews();
 // Startup.cs
 
 builder.Services.AddScoped<IPdfService, PdfService>();
-
 
 var app = builder.Build();
 
@@ -27,6 +28,9 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=home}/{action=Index}/{id?}");
+
+
+
 
 app.Run();
