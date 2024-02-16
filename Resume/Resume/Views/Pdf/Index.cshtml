@@ -1,86 +1,167 @@
 ﻿<!-- Views/Pdf/Index.cshtml -->
-@{
-    ViewData["Title"] = "Download PDF";
-}
+<head>
 
-<h2>@ViewData["Title"]</h2>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/Pdf.css" />
+</head>
 
-<div class="container mt-5">
-    <form id="resumeForm">
-        <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
-        </div>
 
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email">
-        </div>
-
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
-        </div>
-
-        <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" placeholder="Enter your address">
-        </div>
-
-        <!-- Experiences Section -->
-        <div class="form-group">
-            <label>Experiences</label>
-            <div id="experiences">
-                <!-- You can dynamically add experience fields here using JavaScript -->
+<div class="d-flex flex-column align-items-center h-100">
+    <div class="d-flex flex-column align-items-center">
+        <h2>Download PDF</h2>
+    </div>
+    <div class="d-flex flex-column align-items-center" style="width: 80%;">
+        <div class="d-flex flex-column w-100 align-items-center">
+            <div class="col-md-6 col-md-offset-3" style="height: 20em;">
+                <form id="resumeForm">
+                    <div class="tab">
+                        <h1>Personal Information</h1>
+                        <label for="fullName">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        <label for="phone">Phone</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                    </div>
+                    <div class="tab">
+                        <h1>Education</h1>
+                        <label for="educationLevel">Education Level</label>
+                        <input type="text" class="form-control" id="educationLevel" placeholder="Enter your Education Level">
+                    </div>
+                    <div class="tab">
+                        <h1>Experience</h1>
+                        <label for="jobTitle">Job Title</label>
+                        <input type="text" class="form-control" id="jobTitle" placeholder="Enter your Job Title">
+                    </div>
+                </form>
+            </div>
+            <div style="overflow:auto;">
+                <div style="float:right;">
+                    <button type="button" id="prevBtn">Previous</button>
+                    <button type="button" id="nextBtn">Next</button>
+                </div>
+            </div>
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
             </div>
         </div>
-
-        <!-- Education Section -->
-        <div class="form-group">
-            <label>Education</label>
-            <div id="education">
-                <!-- You can dynamically add education fields here using JavaScript -->
-            </div>
+        <div id="endOfForm" style="display: none">
+            <h1>Thank you for using Resume Maker</h1>
+            <a href="/Pdf">Make another resume</a>
         </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </div>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
-    $('#resumeForm').submit(function (e) {
-        e.preventDefault();
-        var resumeData = {
-            Address: $("#address").val(),
-            Education: null,
-            Email: $("#email").val(),
-            Phone: $("#phone").val(),
-            FullName: $("#fullName").val(),
-            Experiences: null,
-        };
-        $.ajax({
-            type: "POST",
-            url: '@Url.Action("DownloadPdf", "Pdf")',
-            data: JSON.stringify(resumeData),
-            contentType: "application/json; charset=utf-8",
-            xhrFields: {
-                responseType: 'blob'
-            },
-            success: function (data) {
-                var blob = new Blob([data], { type: 'application/pdf' });
-                var link = document.createElement('a');
-                link.href = window.URL.createObjectURL(blob);
-                link.download = 'downloaded.pdf';
-                link.click();
-            },
-            error: function (response) {
-                alert(response.responseText);
+    $(document).ready(function () {
+        var currentTab = 0;
+        showTab(currentTab);
+
+        function showTab(n) {
+            var x = $(".tab");
+            x.eq(n).css("display", "block");
+
+            if (n == 0) {
+                $("#prevBtn").css("display", "none");
+            } else {
+                $("#prevBtn").css("display", "inline");
             }
+
+            if (n == x.length - 1) {
+                $("#nextBtn").html("Submit");
+            } else {
+                $("#nextBtn").html("Next");
+            }
+
+            fixStepIndicator(n);
+        }
+
+        function nextPrev(n) {
+            var x = $(".tab");
+            x.eq(currentTab).css("display", "none");
+
+            if (currentTab >= x.length) {
+                // Do nothing if currentTab is out of bounds
+                return;
+            }
+
+            currentTab += n;
+
+            if (currentTab >= x.length) {
+                $("#prevBtn").css("display", "none");
+                $("#nextBtn").css("display", "none");
+                $(".step").hide();
+
+                $("#endOfForm").css("display", "inline");
+
+                // If the currentTab is out of bounds after incrementing, trigger form submission
+                submitForm();
+                return;
+            }
+
+            showTab(currentTab);
+        }
+
+        function fixStepIndicator(n) {
+            var x = $(".step");
+            x.removeClass("active");
+            x.eq(n).addClass("active");
+        }
+
+        function submitForm() {
+            var resumeData = {
+                Address: $("#address").val(),
+                Education: null,
+                Email: $("#email").val(),
+                Phone: $("#phone").val(),
+                FullName: $("#fullName").val(),
+                Experiences: null,
+            };
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("DownloadPdf", "Pdf")',
+                data: JSON.stringify(resumeData),
+                contentType: "application/json; charset=utf-8",
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data) {
+                    // window.location.reload();
+                    var blob = new Blob([data], { type: 'application/pdf' });
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'downloaded.pdf';
+                    link.click();
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+        $("#nextBtn").on("click", function () {
+            nextPrev(1);
         });
+
+        $("#prevBtn").on("click", function () {
+            nextPrev(-1);
+        });
+
+        // Form submission event handler
+        // $('#resumeForm').submit(function (e) {
+        //     e.preventDefault();
+        //     submitForm();
+        //     return false;
+        // });
     });
 
 </script>
-
-

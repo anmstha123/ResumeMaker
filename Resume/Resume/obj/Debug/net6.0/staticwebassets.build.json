@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tV3YVQUa1z+rip/8cen4TA7VpCW3DZsVkAA4wyBGk28=",
+  "Hash": "Fk9fOImdgGWNdpz8Gxvs2T0SlKjjjQ0nCflbklZ+Adc=",
   "Source": "Resume",
   "BasePath": "_content/Resume",
   "Mode": "Default",
@@ -763,6 +763,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anmst\\.nuget\\packages\\bootstrap\\5.3.2\\contentFiles\\any\\any\\wwwroot\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\wwwroot\\css\\Pdf.css",
+      "SourceId": "Resume",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\wwwroot\\",
+      "BasePath": "_content/Resume",
+      "RelativePath": "css/Pdf.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Pdf.css"
     },
     {
       "Identity": "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\wwwroot\\css\\site.css",

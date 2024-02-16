@@ -177,6 +177,10 @@
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\wwwroot\\css\\Pdf.css",
+      "PackagePath": "staticwebassets\\css\\Pdf.css"
+    },
+    {
       "Id": "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
