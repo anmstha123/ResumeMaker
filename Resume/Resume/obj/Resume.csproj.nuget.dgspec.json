@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\Resume.csproj": {}
+    "C:\\Users\\Anmol\\Documents\\ResumeMaker\\Resume\\Resume\\Resume.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\Resume.csproj": {
+    "C:\\Users\\Anmol\\Documents\\ResumeMaker\\Resume\\Resume\\Resume.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\Resume.csproj",
+        "projectUniqueName": "C:\\Users\\Anmol\\Documents\\ResumeMaker\\Resume\\Resume\\Resume.csproj",
         "projectName": "Resume",
-        "projectPath": "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\Resume.csproj",
-        "packagesPath": "C:\\Users\\anmst\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anmst\\OneDrive\\Documents\\ResumeMaker\\Resume\\Resume\\obj\\",
+        "projectPath": "C:\\Users\\Anmol\\Documents\\ResumeMaker\\Resume\\Resume\\Resume.csproj",
+        "packagesPath": "C:\\Users\\Anmol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anmol\\Documents\\ResumeMaker\\Resume\\Resume\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\anmst\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anmol\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
