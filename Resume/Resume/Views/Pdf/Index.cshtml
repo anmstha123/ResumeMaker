@@ -27,8 +27,15 @@
                     </div>
                     <div class="tab">
                         <h1>Education</h1>
-                        <label for="educationLevel">Education Level</label>
-                        <input type="text" class="form-control" id="educationLevel" placeholder="Enter your Education Level">
+                        <label for="degree">Degree Level</label>
+                        <input type="text" class="form-control" id="degree" placeholder="Enter your Degree Level">
+                        <label for="fieldOfStudy">Field of Study</label>
+                        <input type="text" class="form-control" id="fieldOfStudy" placeholder="Enter your field of study">
+                        <label for="institution">Institution Name</label>
+                        <input type="text" class="form-control" id="institution" placeholder="Enter your institution name">
+                        <label for="year">Year of graduation</label>
+                        <input type="text" class="form-control" id="year" placeholder="Enter your year of graduation">
+                        
                     </div>
                     <div class="tab">
                         <h1>Experience</h1>
@@ -120,7 +127,12 @@
         function submitForm() {
             var resumeData = {
                 Address: $("#address").val(),
-                Education: null,
+                Education: [{ 
+                    Degree: $("#degree").val(), 
+                    FieldOfStudy: $("#fieldOfStudy").val(),
+                    Institution: $("#institution").val(),
+                    Year: $("#year").val()
+                }],
                 Email: $("#email").val(),
                 Phone: $("#phone").val(),
                 FullName: $("#fullName").val(),
