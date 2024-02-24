@@ -3,19 +3,61 @@
 }
 
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Maker</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 
-<div class="d-flex flex-column align-items-center h-100">
-    <div class="d-flex flex-column align-items-center">
-        <h2>Welcome to the Homepage</h2>
-    </div>
-    <div class="d-flex flex-column" style="width: 80%;">
-        <button type="button" id="newResume" class="btn btn-primary align-self-center" style="max-width: 11em;">Make New Resume</button>
-    </div>
-</div>
+<body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar w/ text</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                </ul>
+                <span class="d-flex">
+                    <button type="button" class="btn btn-sm btn-primary" id="newResume">Build my resume</button
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 align-self-center">
+                <h1>Get your dream job with the Resume Maker professional resume builder</h1>
+                <p>
+                    Create the perfect resume in just minutes by choosing from 200+ resume template configurations to best
+                    exemplify your professional experience.
+                </p>
+                <button type="button" class="btn btn-lg btn-primary" id="newResume">Build my resume</button>
+            </div>
+            <div class="col-sm-4">
+                <img src="~/assets/resumeFolder.gif" />
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+
+
 
 <script>
     $(document).ready(function () {

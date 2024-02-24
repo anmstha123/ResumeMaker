@@ -116,7 +116,7 @@ namespace Resume.Services.PdfService
                 column.Item().PaddingTop(topicPadding).Text("Education").Style(titleStyle);
                 column.Item().LineHorizontal(1).LineColor(Colors.Grey.Medium);
 
-                column.Item().Element(ComposeContentEducation);
+                column.Item().Element((context) => ComposeContentEducation(context, resumeData));
 
                 column.Item().PaddingTop(topicPadding).Text("Key Skills").Style(titleStyle);
                 column.Item().LineHorizontal(1).LineColor(Colors.Grey.Medium);
@@ -204,7 +204,7 @@ namespace Resume.Services.PdfService
             });
 
         }
-        void ComposeContentEducation(IContainer container)
+        void ComposeContentEducation(IContainer container, ResumeData resumeData)
         {
             var titleStyle = TextStyle.Default.FontSize(11).SemiBold().FontColor(Colors.Blue.Medium);
             var contentStyle = TextStyle.Default.FontSize(10).FontColor(Colors.Black);
@@ -216,8 +216,8 @@ namespace Resume.Services.PdfService
             {
                 row.RelativeItem().Column(column =>
                 {
-                    column.Item().Text("Bachelor' in Computer Science August 2020 - December 2022").Style(contentStyle);
-                    column.Item().Text("University of Texasat Arlington at The University of Texas At Arlington - Arlington, TX").Style(contentStyle);
+                    column.Item().Text(resumeData.Education[0].Degree + " in "+ resumeData.Education[0].FieldOfStudy).Style(contentStyle);
+                    column.Item().Text(resumeData.Education[0].Institution + " " + resumeData.Education[0].Year).Style(contentStyle);
 
                     foreach (var i in EducationList)
                     {
