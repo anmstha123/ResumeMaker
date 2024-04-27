@@ -2,6 +2,7 @@
     ViewData["Title"] = "HomePage";
 }
 
+
 <head>
 
     <meta charset="UTF-8">
@@ -11,27 +12,12 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar w/ text</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="container-fluid align-content-center">
+            <a class="navbar-brand" href="/">Resume Maker</a>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                </ul>
                 <span class="d-flex">
-                    <button type="button" class="btn btn-sm btn-primary" id="newResume">Build my resume</button
+                    <button type="button" class="btn btn-sm btn-primary" id="newResume">Build my resume</button>
                 </span>
             </div>
         </div>
@@ -40,13 +26,13 @@
     <!-- content -->
     <div class="container">
         <div class="row">
-            <div class="col-sm-8 align-self-center">
+            <div class="col-sm-6 align-self-center">
                 <h1>Get your dream job with the Resume Maker professional resume builder</h1>
                 <p>
                     Create the perfect resume in just minutes by choosing from 200+ resume template configurations to best
                     exemplify your professional experience.
                 </p>
-                <button type="button" class="btn btn-lg btn-primary" id="newResume">Build my resume</button>
+                <button type="button" class="btn btn-lg btn-primary" id="newResume1">Build my resume</button>
             </div>
             <div class="col-sm-4">
                 <img src="~/assets/resumeFolder.gif" />
@@ -62,6 +48,10 @@
 <script>
     $(document).ready(function () {
         $('#newResume').click(function () {
+            window.location.href = '/pdf';
+        });
+
+        $('#newResume1').click(function () {
             window.location.href = '/pdf';
         });
     });

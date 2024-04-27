@@ -1,4 +1,17 @@
-﻿<!-- Views/Pdf/Index.cshtml -->
+﻿@model Resume.Models.ResumeData
+<!-- Views/Pdf/Index.cshtml -->
+<style>
+    button:focus {
+        outline: none !important;
+    }
+
+    #educationFields{
+        height: 16em;
+        overflow-y:scroll;
+    }
+</style>
+
+
 <head>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -7,48 +20,76 @@
 
 
 <div class="d-flex flex-column align-items-center h-100">
-    <div class="d-flex flex-column align-items-center">
-        <h2>Download PDF</h2>
-    </div>
     <div class="d-flex flex-column align-items-center" style="width: 80%;">
         <div class="d-flex flex-column w-100 align-items-center">
             <div class="col-md-6 col-md-offset-3" style="height: 20em;">
                 <form id="resumeForm">
                     <div class="tab">
-                        <h1>Personal Information</h1>
-                        <label for="fullName">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                        <label for="phone">Phone</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                        <h1>Contact</h1>
+                        <div class="d-flex flex-row justify-content-center align-items-center gap-4 mb-2">
+                            <div class="input-group input-group-lg mb-2">
+                                <input type="text" name="firstName" class="form-control" placeholder="First Name" id="firstName">
+                            </div>
+                            <div class="input-group input-group-lg mb-2">
+                                <input type="text" name="lastName" class="form-control" placeholder="Last Name" id="lastName">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center gap-4 mb-2">
+                            <div class="input-group input-group-lg mb-2">
+                                <input type="text" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job Title">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center gap-4 mb-2">
+                            <div class="input-group input-group-lg mb-2">
+                                <input type="text" name="city" class="form-control" id="city" placeholder="City">
+                            </div>
+                            <div class="input-group input-group-lg mb-2">
+                                <input type="text" name="state" class="form-control" id="state" placeholder="State/Province">
+                            </div>
+                            <div class="input-group input-group-lg mb-2">
+                                <input type="text" name="zipCode" class="form-control" id="zipCode" placeholder="Zip Code">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center gap-4 mb-2">
+                            <div class="input-group input-group-lg mb-2">
+                                <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone">
+                            </div>
+                            <div class="input-group input-group-lg mb-2">
+                                <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+                            </div>
+                        </div>
                     </div>
                     <div class="tab">
                         <h1>Education</h1>
-                        <label for="degree">Degree Level</label>
-                        <input type="text" class="form-control" id="degree" placeholder="Enter your Degree Level">
-                        <label for="fieldOfStudy">Field of Study</label>
-                        <input type="text" class="form-control" id="fieldOfStudy" placeholder="Enter your field of study">
-                        <label for="institution">Institution Name</label>
-                        <input type="text" class="form-control" id="institution" placeholder="Enter your institution name">
-                        <label for="year">Year of graduation</label>
-                        <input type="text" class="form-control" id="year" placeholder="Enter your year of graduation">
-                        
-                    </div>
+                        <div id="educationFields">
+                            @Html.Partial("_EducationFieldPartial", new Resume.Models.Education())
+                        </div>
+                        <div class="d-flex flex-row justify-content-between align-items-center">
+                            <button type="button" class="btn btn-sm btn-primary" id="addEducation">Add</button>
+                            <button type="button" class="btn btn-sm btn-danger" id="removeEducation">Remove</button>
+                        </div>
+
+                     </div>
+
                     <div class="tab">
                         <h1>Experience</h1>
-                        <label for="jobTitle">Job Title</label>
-                        <input type="text" class="form-control" id="jobTitle" placeholder="Enter your Job Title">
+                        <div id="experienceFields">
+                            @Html.Partial("_ExperienceFieldPartial", new Resume.Models.Experience())
+                        </div>
+                        <div class="d-flex flex-row justify-content-between align-items-center">
+                            <button type="button" class="btn btn-sm btn-primary" id="addExperience">Add</button>
+                            <button type="button" class="btn btn-sm btn-danger" id="removeExperience">Remove</button>
+                        </div>
                     </div>
                 </form>
             </div>
-            <div style="overflow:auto;">
-                <div style="float:right;">
-                    <button type="button" id="prevBtn">Previous</button>
-                    <button type="button" id="nextBtn">Next</button>
+            <br />
+            <div class="d-flex flex-row justify-content-center align-items-center" style="width: 100%">
+                <div class="d-flex flex-row justify-content-between align-items-center" id="nextPrevBtn">
+                    <button type="button" class="btn btn-secondary" id="prevBtn">Previous</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
                 </div>
+                
             </div>
             <!-- Circles which indicates the steps of the form: -->
             <div style="text-align:center;margin-top:40px;">
@@ -79,8 +120,10 @@
 
             if (n == 0) {
                 $("#prevBtn").css("display", "none");
+                $("#nextPrevBtn").css("width","");
             } else {
                 $("#prevBtn").css("display", "inline");
+                $("#nextPrevBtn").css("width","10em");
             }
 
             if (n == x.length - 1) {
@@ -126,28 +169,41 @@
 
         function submitForm() {
             var resumeData = {
-                Address: $("#address").val(),
-                Education: [{ 
-                    Degree: $("#degree").val(), 
-                    FieldOfStudy: $("#fieldOfStudy").val(),
-                    Institution: $("#institution").val(),
-                    Year: $("#year").val()
-                }],
+                State: $("#state").val(),
+                Education: [],
                 Email: $("#email").val(),
                 Phone: $("#phone").val(),
-                FullName: $("#fullName").val(),
-                Experiences: null,
+                FirstName: $("#firstName").val(),
+                LastName: $("#lastName").val(),
+                Experiences: []
             };
+
+            $(".educationForm").each(function () {
+                var degree = $(this).find("input[name=Degree]").val();
+                var fieldOfStudy = $(this).find("input[name=FieldOfStudy]").val();
+                var institution = $(this).find("input[name=Institution]").val();
+                var year = $(this).find("input[name=Year]").val();
+
+                var educationObj = {
+                    Degree: degree,
+                    FieldOfStudy: fieldOfStudy,
+                    Institution: institution,
+                    Year: year
+                };
+
+                resumeData.Education.push(educationObj);
+            });
+
+
             $.ajax({
                 type: "POST",
-                url: '@Url.Action("DownloadPdf", "Pdf")',
+                url: '/Pdf/DownloadPdf',
                 data: JSON.stringify(resumeData),
                 contentType: "application/json; charset=utf-8",
                 xhrFields: {
                     responseType: 'blob'
                 },
                 success: function (data) {
-                    // window.location.reload();
                     var blob = new Blob([data], { type: 'application/pdf' });
                     var link = document.createElement('a');
                     link.href = window.URL.createObjectURL(blob);
@@ -160,6 +216,7 @@
             });
         }
 
+
         $("#nextBtn").on("click", function () {
             nextPrev(1);
         });
@@ -168,12 +225,41 @@
             nextPrev(-1);
         });
 
-        // Form submission event handler
-        // $('#resumeForm').submit(function (e) {
-        //     e.preventDefault();
-        //     submitForm();
-        //     return false;
-        // });
+        $("#addEducation").click(function () {
+            $.ajax({
+                type: "GET", 
+                url: "@Url.Action("AddEducationField", "Pdf")", 
+                dataType: "html",
+                success: function (partialView) {
+                    $("#educationFields").append(partialView);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error("Error loading partial view:", textStatus, errorThrown);
+                }
+            });
+        });
+
+        $("#addExperience").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("AddExperienceField", "Pdf")",
+                dataType: "html",
+                success: function (partialView) {
+                    $("#experienceFields").append(partialView);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error("Error loading partial view:", textStatus, errorThrown);
+                }
+            });
+        });
+
+        $("#removeEducation").click(function () {
+            $(".educationForm").last().remove();
+        });
+
+        $("#removeExperience").click(function () {
+            $(".experienceForm").last().remove();
+        });
     });
 
 </script>

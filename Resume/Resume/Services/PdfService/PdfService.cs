@@ -156,9 +156,9 @@ namespace Resume.Services.PdfService
             {
                 row.RelativeItem().Column(column =>
                 {
-                    column.Item().Text(resumeData.FullName).Style(titleStyle);
+                    column.Item().Text(resumeData.FirstName).Style(titleStyle);
                     column.Item().Text("Software Developer").Style(TextStyle.Default.FontSize(11).SemiBold().FontColor(Colors.Black));
-                    column.Item().Text(resumeData.Address).Style(contentStyle);
+                    column.Item().Text(resumeData.City).Style(contentStyle);
                     column.Item().Text(resumeData.Phone).Style(contentStyle);
                 });
 

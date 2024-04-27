@@ -17,7 +17,8 @@ namespace Resume.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var val = new ResumeData();
+            return View(val);
         }
 
         //[HttpPost]
@@ -25,6 +26,22 @@ namespace Resume.Controllers
         {
             var pdfResult = _pdfService.GetPDF(resumeData);
             return pdfResult;
+        }
+
+        [HttpGet]
+        public IActionResult AddEducationField()
+        {
+            var educationField = new Education();
+
+            return PartialView("_EducationFieldPartial", educationField);
+        }
+
+        [HttpGet]
+        public IActionResult AddExperienceField()
+        {
+            var experienceField = new Experience();
+
+            return PartialView("_ExperienceFieldPartial", experienceField);
         }
     }
 }
